@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="pageHeader">
+
+
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/js/main.js}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+ 
+ 
+<body>
+
+<div th:fragment="menu">
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" th:href="@{/}">Home</a></li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Product <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{/customer/addProduct}">Add product</a></li>
+          <li><a href="#" th:href="@{/customer/getProducts}">List product</a></li>
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Supplier <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+           <li><a href="#" th:href="@{/customer/Supplierregistration}">Add supplier</a></li> 
+          <li><a href="#" th:href="@{/customer/getSuppliers}">List supplier</a></li>
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Invoice <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{/customer/Invoiceregistration}">Add invoice</a></li> 
+          <li><a href="#" th:href="@{/customer/getInvoices}">List invoice</a></li>
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{/customer/Customerregistration}">Add customer</a></li> 
+          <li><a href="#" th:href="@{/customer/getCustomers}">List customer</a></li>
+         
+        </ul>
+      </li>
+      
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+      <li sec:authorize="!isAuthenticated()">
+      <a th:href="@{/customer/registration}"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+      </li>
+    <li sec:authorize="!isAuthenticated()" class="nav-item">
+            <a class="btn btn-outline-light" th:href="@{/login}">Login</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" sec:authentication="name">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="pl-3 btn btn-outline-light" th:href="@{/profile}">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="pl-3 btn btn-outline-light" th:href="@{/logout}">Logout</a>
+            </div>
+        </li>
+    </ul>
+  </div>
+</nav>
+  
+
+
+</div>
+
+    <div th:fragment="middle_bar">
+ <div class="container-fluid">
+
+  
+
+     <div class="row">
+     <div class="col-md-6">
+     <img alt="okay java" src="images/slider.jpg " style="height:500px;width:100%;">
+     </div>
+     <div class="col-sm-6">
+     <h1 class="col ml-2">WHO<br>
+WE ARE?</h1>
+<h3 class="col pt-3 ml-2" style="color:orange;">All About Inventory</h3>
+<p class="col pt-5" style="font-size:20px">Inventory Management System oversees the the flow of stocks from the manufactures to the warehouses and from these centers
+to point of sales and Inventory system database design.Inventory Management system is extensively used in quite a few industries,from 
+production to utilities,health care,education,government and more.Inventory management system streamline and centralize the system for controlling
+the drift and maintenance of stock to make certain that the proper quantity of stock is available at right time and of the right quality.</p></div>
+     </div>
+    
+     </div>
+      <div class="container-fluid">
+       
+  <div class="row" >
+   <div class="col"style="height:300px;width:100%;background-color:black;">  
+<center><h2 class="col text-light pt-2"style="color:white;">WORK<br>
+WITH US</h2>
+<h5 class="col  pt-2"style="color:white;"> Lets Get Offer </h5>
+<p class="col text-light pt-2" style="color:orange;">The more inventory a company has ,the less likely they will have what they need.
+</p>
+<button type="button" class="btn btn-warning">GET A QUOTE</button>
+
+
+</center>
+    </div><br>
+    </div>
+  </div>
+        
+    </div>
+   
+
+
+
+<div th:fragment="pageFooter">
+<footer>
+<div class="row">  
+<div class="col-md-12">  
+  
+<footer class="footer">  
+
+<div class="row">  
+<div class="col-md-3 m-b-30">  
+<div class="footer-title m-t-5 m-b-20 p-b-8">  
+About us  
+</div>  
+<p class="text-white">  
+Lorem Ipsum.  
+</p>  
+</div>  
+<div class="col-md-3 m-b-30">  
+<div class="footer-title m-t-5 m-b-20 p-b-8">  
+Latest themes  
+</div>  
+<div class="footer-links">  
+<a href="#">Supplier </a>  
+<a href="#">  
+Customer 
+</a>  
+<a href="#">  
+Product 
+</a>  
+<a href="#">  
+Invoice 
+</a>  
+</div>  
+</div>  
+<div class="col-md-3 m-b-30">  
+<div class="footer-title m-t-5 m-b-20 p-b-8">  
+Quick Links  
+</div>  
+<div class="footer-links">  
+<a href="#">  
+Blog  
+</a>  
+<a href="#">  
+FAQ  
+</a>  
+<a href="#">  
+Terms & conditions  
+</a>  
+<a href="#">  
+Privacy policy  
+</a>  
+</div>  
+</div>  
+<div class="col-md-3 m-b-30">  
+<div class="footer-title m-t-5 m-b-20 p-b-8">  
+Support  
+</div>  
+<div class="footer-links">  
+<a href="#">  
+Affiliate  
+</a>  
+<a href="#">  
+Login  
+</a>  
+<a href="#">  
+All theme package  
+</a>  
+<a href="#">  
+Support forum  
+</a>  
+</div>  
+<div class="footer-social-links m-t-30">  
+<li> <a href="#">  
+<i class="fa fa-facebook" aria-hidden="true"> </i> </a>  
+<a href="#"> <i class="fa fa-twitter" aria-hidden="true"> </i> </a>  
+<a href="#"> <i class="fa fa-linkedin" aria-hidden="true"> </i> </a>  
+<a href="#"> <i class="fa fa-youtube" aria-hidden="true"> </i> </a>  
+</li>  
+</div>  
+</div>  
+</div>  
+</div> </div> 
+ 
+<div class="footer-bottom">  
+Copyright ? 2022, All Rights Reserved  
+</div>  </footer> 
+
+       
+ </div>
+
+
+</body>
+</html>
